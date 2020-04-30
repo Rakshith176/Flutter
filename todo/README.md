@@ -1,6 +1,7 @@
 # todo
 
 A new Flutter application. In this App the user can now add their tasks by specifying the order of the task and delete any prefered task the time they have completed it..
+Add the image in the assets folder and path in pubspec.yaml file to see the image as the APP ICON
 
 ## Getting Started
 
