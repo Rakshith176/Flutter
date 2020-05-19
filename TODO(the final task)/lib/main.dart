@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _editControl;
   Box<String> tasksBox;
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-  @override
+ 
+  @override  
   void initState() {
     super.initState();
     _controller = CalendarController();
@@ -66,6 +67,7 @@ class _HomePageState extends State<HomePage> {
 
 
   Future _noTasks() async {
+    //notification when any new task is added
     var androidPlatformChannelSpecifics = new AndroidNotificationDetails(
         'your channel id', 'your channel name', 'your channel description',
         playSound: false, importance: Importance.Max, priority: Priority.High);
@@ -197,7 +199,7 @@ class _HomePageState extends State<HomePage> {
            mainAxisSize: MainAxisSize.min,
              children: <Widget>[
              IconButton(
-           icon: Icon(Icons.edit),
+           icon: Icon(Icons.edit),//display the edit icon
            onPressed: () async{
              await  showDialog(
                  context: context,
@@ -236,9 +238,7 @@ class _HomePageState extends State<HomePage> {
              );
 
            }
-
-
-             ),
+ ),
           IconButton(
            icon: Icon(Icons.delete),//display the delete icon for a better understanding
            onPressed: () async{
@@ -272,18 +272,12 @@ class _HomePageState extends State<HomePage> {
          ),
         ],
         )
-           );
-
-       
-
-      })
-
-
-            ],
+           ); })
+],
         ),
       ),
       floatingActionButton: FloatingActionButton(backgroundColor: Colors.deepOrange,
-        child: Icon(Icons.add),
+        child: Icon(Icons.add),//the add icon is displayed for the user to add any new tasks
         onPressed: _addDialog,
 
       ),
@@ -311,7 +305,7 @@ class _HomePageState extends State<HomePage> {
                   _events[_controller.selectedDay] = [_eventController.text];
                   _noTasks();
                 }
-                tasksBox.put("events", json.encode(encodeMap(_events)));
+                tasksBox.put("events", json.encode(encodeMap(_events)));//storing the added task locally with help of hive box 
                 _eventController.clear();
                 Navigator.pop(context);
               },
@@ -324,7 +318,7 @@ class _HomePageState extends State<HomePage> {
 
 
   _showNotification() async{
-    //display this notification if the there is any tasks added for the day before itself
+    //display this notification everyday at 8am to remind the user to check or add the todos for the day
     var time = new Time(8,0, 0);//at 8am
     var androidPlatformChannelSpecifics =
     new AndroidNotificationDetails('repeatDailyAtTime channel id',
@@ -341,18 +335,15 @@ class _HomePageState extends State<HomePage> {
         platformChannelSpecifics);
   }
   void state(){
+    //common state management for all the events that take place
       setState(() {
         _selectedEvents = _events[_controller.selectedDay];
 
       });
-
-
-
-  }
-
-
-
-
 }
+}
+//the bloc was not necessary for this idea of code.. but yeah i faced issues while trying and implementing the bloc pattern for state management
+
+
 
 
