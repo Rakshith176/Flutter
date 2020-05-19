@@ -325,7 +325,7 @@ class _HomePageState extends State<HomePage> {
 
   _showNotification() async{
     //display this notification if the there is any tasks added for the day before itself
-    var time = new Time(17,34, 0);//at 8am
+    var time = new Time(8,0, 0);//at 8am
     var androidPlatformChannelSpecifics =
     new AndroidNotificationDetails('repeatDailyAtTime channel id',
         'repeatDailyAtTime channel name', 'repeatDailyAtTime description');
