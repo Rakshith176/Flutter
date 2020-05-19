@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:hive/hive.dart';
@@ -213,10 +214,8 @@ class _HomePageState extends State<HomePage> {
                                //editing the particular task and updating the map and elements present  in the hive box
                                _events[_controller.selectedDay].insert(index, _editControl.text);
                                _events[_controller.selectedDay].removeAt((index+1));
-                               setState(() {
-                                 _selectedEvents = _events[_controller.selectedDay];
-                                 _editControl.clear();
-                               });
+                              state();
+                              _editControl.clear();
                              }
                              tasksBox.put("events", json.encode(encodeMap(_events)));
                              Navigator.pop(context);
@@ -255,9 +254,7 @@ class _HomePageState extends State<HomePage> {
                          onPressed: (){
                            //using the removeAt property to remove the task that is no longer needed and updating the hive box again
                            _events[_controller.selectedDay].removeAt(index);
-                           setState(() {
-                             _selectedEvents = _events[_controller.selectedDay];
-                           });
+                           state();
                            tasksBox.put("events", json.encode(encodeMap(_events)));
                            Navigator.pop(context);
                          },
@@ -285,10 +282,12 @@ class _HomePageState extends State<HomePage> {
             ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(backgroundColor: Colors.deepOrange,
         child: Icon(Icons.add),
         onPressed: _addDialog,
+
       ),
+
     );
   }
 
@@ -319,9 +318,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ));
-    setState(() {
-      _selectedEvents = _events[_controller.selectedDay];
-    });
+    state();
   }
 
 
@@ -342,6 +339,15 @@ class _HomePageState extends State<HomePage> {
         'Check if u have any things todo for today',
         time,
         platformChannelSpecifics);
+  }
+  void state(){
+      setState(() {
+        _selectedEvents = _events[_controller.selectedDay];
+
+      });
+
+
+
   }
 
 
