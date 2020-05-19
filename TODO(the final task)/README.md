@@ -5,9 +5,8 @@ A flutter application where users can add their daily todos.
 * [General info](#general-info)
 * [Installation](#installation)
 * [About](#about)
-* [Screenshots](#screenshots)
 * [Packages](#packages)
-
+* [Screenshots](#screenshots)
 
 
 
@@ -33,14 +32,7 @@ once your done with setting flutter on your device use the files that you cloned
 - Everytime the user clicks a date in the calendar(which is present on the screen all the time) user can add the events to that respected date and the events for the date is displayed when the date is clicked..
 - The State Management method **setState** was used as the app depended on only one state to be changed (i.e only the map had to be updated on any event that took place.. bloc was too complicated to be implemented for it to be used in this idea of the app)..
 -The code has comments which makes easier for the reader to understand it..
-
-
-## Screenshots
-![Screenshot_20200520-020057 1](https://user-images.githubusercontent.com/58885049/82376345-91ebfa80-9a3f-11ea-8aaa-1dbaa7fd12c4.jpg)
-![Screenshot_20200520-020252 1](https://user-images.githubusercontent.com/58885049/82376433-bfd13f00-9a3f-11ea-8faf-71d5fb77abbc.jpg)
-![20200520_020028 1](https://user-images.githubusercontent.com/58885049/82376738-2f472e80-9a40-11ea-9e0f-535eaf14202e.gif)
-
-
+- The app notifies once at 8am everyday so that user is reminded to add ot to do any task...the user also is notifies when there is a task added everytime..
 
 
 
@@ -55,6 +47,13 @@ once your done with setting flutter on your device use the files that you cloned
 
 ### Doubt
 I have tried implementing the bloc pattern but got stuck to actually use state as all events are related with the same state and i failed to use it in the ui(i couldnt convert my type of code to the bloc pattern sorry)
+
+
+## Screenshots
+![Screenshot_20200520-020057 1](https://user-images.githubusercontent.com/58885049/82376345-91ebfa80-9a3f-11ea-8aaa-1dbaa7fd12c4.jpg)
+![Screenshot_20200520-020252 1](https://user-images.githubusercontent.com/58885049/82376433-bfd13f00-9a3f-11ea-8faf-71d5fb77abbc.jpg)
+![20200520_020028 1](https://user-images.githubusercontent.com/58885049/82376738-2f472e80-9a40-11ea-9e0f-535eaf14202e.gif)
+
 
 
 
