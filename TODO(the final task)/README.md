@@ -45,8 +45,7 @@ once your done with setting flutter on your device use the files that you cloned
 ### ** Contact if any part of code is not self explanatory or couldnt figure out the purpose **
 
 
-### Doubt
-I have tried implementing the bloc pattern but got stuck to actually use state as all events are related with the same state and i failed to use it in the ui(i couldnt convert my type of code to the bloc pattern sorry)
+
 
 
 ## Screenshots
