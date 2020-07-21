@@ -1,2 +1,3 @@
-# Flutter_Bootcamp
-IRIS Flutter Bootcamp 2020
+# Flutter
+Application based on flutter framework
+
