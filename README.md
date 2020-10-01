@@ -1,3 +1,3 @@
 # Flutter
-Application based on flutter framework
+Application based on flutter framework.
 
